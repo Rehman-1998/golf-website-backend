@@ -221,9 +221,9 @@ const filterUsers = asyncHandler(async (req, res) => {
   const maxDistance = req.body.distance?.split("-")[1];
   const users = await User.find({
     ...req.body,
-    age: { $lt: parseInt(maxAge), $gt: parseInt(minAge) },
-    distance: { $lt: parseInt(maxDistance), $gt: parseInt(minDistance) },
-    purpose: { $in: req.body.purpose },
+    age: { $lte: parseInt(maxAge), $gte: parseInt(minAge) },
+    distance: { $lte: parseInt(maxDistance), $gte: parseInt(minDistance) },
+    // purpose: { $in: req.body.purpose },
   });
   if (users) {
     res.json({ data: users, success: true });
