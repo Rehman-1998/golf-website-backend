@@ -210,4 +210,27 @@ const getUser = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { authUser, registerUser, getUser, users };
+// @desc    Filter Users
+// @route   post /filter
+// @access  Public
+
+const filterUsers = asyncHandler(async (req, res) => {
+  const minAge = req.body.age?.split("-")[0];
+  const maxAge = req.body.age?.split("-")[1];
+  const minDistance = req.body.distance?.split("-")[0];
+  const maxDistance = req.body.distance?.split("-")[1];
+  const users = await User.find({
+    ...req.body,
+    age: { $lt: parseInt(maxAge), $gt: parseInt(minAge) },
+    distance: { $lt: parseInt(maxDistance), $gt: parseInt(minDistance) },
+    purpose: { $in: req.body.purpose },
+  });
+  if (users) {
+    res.json({ data: users, success: true });
+  } else {
+    res.status(400);
+    throw new Error("users not found");
+  }
+});
+
+module.exports = { authUser, registerUser, getUser, users, filterUsers };
