@@ -186,7 +186,7 @@ const registerUser = asyncHandler(async (req, res) => {
 // @access  Public
 
 const users = asyncHandler(async (req, res) => {
-  const allUser = await User.find({ role: { $ne: "admin" } });
+  const allUser = await User.find({});
   if (allUser) {
     res.json({ data: allUser, success: true });
   } else {
@@ -233,4 +233,36 @@ const filterUsers = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = { authUser, registerUser, getUser, users, filterUsers };
+const filter = asyncHandler(async (req, res) => {
+  console.log("req body", req.body);
+
+  const users = await User.find({
+    $and: [
+      {
+        age: {
+          $lte: req.body.maxAge,
+          $gte: req.body.minAge,
+        },
+      },
+      {
+        gender: req.body.gender,
+      },
+    ],
+  });
+
+  if (users) {
+    res.json({ data: users, success: true });
+  } else {
+    res.status(400);
+    throw new Error("users not found");
+  }
+});
+
+module.exports = {
+  authUser,
+  registerUser,
+  getUser,
+  users,
+  filterUsers,
+  filter,
+};

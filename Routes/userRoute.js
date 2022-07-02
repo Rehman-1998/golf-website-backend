@@ -8,6 +8,7 @@ router.get("/", userController.users);
 router.post("/login", authmiddleware.protect, userController.authUser);
 router.post("/register", authmiddleware.protect, userController.registerUser);
 router.post("/filter", userController.filterUsers);
+router.post("/test", userController.filter);
 router.get("/:id", userController.getUser);
 
 const userRoute = router;
