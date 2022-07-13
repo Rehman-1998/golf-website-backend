@@ -186,7 +186,7 @@ const registerUser = asyncHandler(async (req, res) => {
 // @access  Public
 
 const users = asyncHandler(async (req, res) => {
-  const allUser = await User.find({});
+  const allUser = await User.find({ role: { $ne: "admin" } });
   if (allUser) {
     res.json({ data: allUser, success: true });
   } else {
