@@ -73,7 +73,7 @@ const userSchema = mongoose.Schema(
       required: true,
     },
     distance: {
-      type: Number,
+      type: String,
       required: true,
     },
     purpose: {
