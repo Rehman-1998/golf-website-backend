@@ -61,7 +61,7 @@ const userSchema = mongoose.Schema(
       required: true,
     },
     currentHandicap: {
-      type: Number,
+      type: String,
       required: true,
     },
     oftenPlay: {
