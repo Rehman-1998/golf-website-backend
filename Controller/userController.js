@@ -258,6 +258,342 @@ const filter = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Update Profile
+// @route   POST /updateProfile
+// @access  Public
+
+const updateProfile = asyncHandler(async (req, res) => {
+  const {
+    user_id,
+    name,
+    gender,
+    dob,
+    age,
+    about,
+    matirialStatus,
+    state,
+    city,
+    zipCode,
+    skillLevel,
+    currentHandicap,
+    oftenPlay,
+    availability,
+    distance,
+    purpose,
+    drinker,
+    linkdinProfile,
+    companyName,
+    positionInCompany,
+    industry,
+    smoker,
+    race,
+    religion,
+    politicalView,
+    favouriteCourse,
+  } = req.body;
+
+  console.log("data====>", req.body);
+
+  let user = await User.findById(user_id);
+
+  if (user) {
+    if (name != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { name: name },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (about != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { about: about },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (age != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { age: age },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (matirialStatus != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { matirialStatus: matirialStatus },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (dob != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { dob: dob },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (gender != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { gender: gender },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (state != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { state: state },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (city != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { city: city },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (zipCode != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { zipCode: zipCode },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (about != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { about: about },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (skillLevel != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { skillLevel: skillLevel },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (currentHandicap != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { currentHandicap: currentHandicap },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (oftenPlay != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { oftenPlay: oftenPlay },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (distance != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { distance: distance },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (favouriteCourse != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { favouriteCourse: favouriteCourse.toString() },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (availability != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { availability: availability.toString() },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (purpose != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { purpose: purpose.toString() },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (drinker != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { drinker: drinker },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (race != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { race: race },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (religion != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { religion: religion },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (industry != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { industry: industry },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (smoker != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { smoker: smoker },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (politicalView != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { politicalView: politicalView },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (linkdinProfile != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { linkdinProfile: linkdinProfile },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (companyName != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { companyName: companyName },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (positionInCompany != "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { positionInCompany: positionInCompany },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+
+    res.json({
+      data: user,
+      success: true,
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
+
 module.exports = {
   authUser,
   registerUser,
@@ -265,4 +601,5 @@ module.exports = {
   users,
   filterUsers,
   filter,
+  updateProfile,
 };
