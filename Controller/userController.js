@@ -532,7 +532,7 @@ const updateProfile = asyncHandler(async (req, res) => {
       user = await User.findByIdAndUpdate(
         user_id,
         {
-          $set: { smoker: smoker },
+          $set: { smoker: smoker.toString()},
         },
         {
           new: true,
