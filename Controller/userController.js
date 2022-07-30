@@ -455,7 +455,7 @@ const updateProfile = asyncHandler(async (req, res) => {
       user = await User.findByIdAndUpdate(
         user_id,
         {
-          $set: { favouriteCourse: favouriteCourse.toString() },
+          $set: { favouriteCourse: favouriteCourse?.toString() },
         },
         {
           new: true,
@@ -466,7 +466,7 @@ const updateProfile = asyncHandler(async (req, res) => {
       user = await User.findByIdAndUpdate(
         user_id,
         {
-          $set: { availability: availability.toString() },
+          $set: { availability: availability?.toString() },
         },
         {
           new: true,
@@ -477,7 +477,7 @@ const updateProfile = asyncHandler(async (req, res) => {
       user = await User.findByIdAndUpdate(
         user_id,
         {
-          $set: { purpose: purpose.toString() },
+          $set: { purpose: purpose?.toString() },
         },
         {
           new: true,
@@ -532,7 +532,7 @@ const updateProfile = asyncHandler(async (req, res) => {
       user = await User.findByIdAndUpdate(
         user_id,
         {
-          $set: { smoker: smoker.toString()},
+          $set: { smoker: smoker?.toString() },
         },
         {
           new: true,
