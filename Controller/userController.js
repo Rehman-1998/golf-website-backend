@@ -517,7 +517,7 @@ const updateProfile = asyncHandler(async (req, res) => {
         }
       );
     }
-    if (industry != "") {
+    if ((industry = "")) {
       user = await User.findByIdAndUpdate(
         user_id,
         {
@@ -550,7 +550,7 @@ const updateProfile = asyncHandler(async (req, res) => {
         }
       );
     }
-    if (linkdinProfile != "") {
+    if ((linkdinProfile = "")) {
       user = await User.findByIdAndUpdate(
         user_id,
         {
@@ -561,7 +561,7 @@ const updateProfile = asyncHandler(async (req, res) => {
         }
       );
     }
-    if (companyName != "") {
+    if ((companyName = "")) {
       user = await User.findByIdAndUpdate(
         user_id,
         {
@@ -572,7 +572,7 @@ const updateProfile = asyncHandler(async (req, res) => {
         }
       );
     }
-    if (positionInCompany != "") {
+    if ((positionInCompany = "")) {
       user = await User.findByIdAndUpdate(
         user_id,
         {
