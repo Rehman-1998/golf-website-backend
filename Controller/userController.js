@@ -517,17 +517,7 @@ const updateProfile = asyncHandler(async (req, res) => {
         }
       );
     }
-    if ((industry = "")) {
-      user = await User.findByIdAndUpdate(
-        user_id,
-        {
-          $set: { industry: industry },
-        },
-        {
-          new: true,
-        }
-      );
-    }
+
     if (smoker != "") {
       user = await User.findByIdAndUpdate(
         user_id,
@@ -550,7 +540,7 @@ const updateProfile = asyncHandler(async (req, res) => {
         }
       );
     }
-    if ((linkdinProfile = "")) {
+    if (linkdinProfile === "") {
       user = await User.findByIdAndUpdate(
         user_id,
         {
@@ -561,7 +551,7 @@ const updateProfile = asyncHandler(async (req, res) => {
         }
       );
     }
-    if ((companyName = "")) {
+    if (companyName === "") {
       user = await User.findByIdAndUpdate(
         user_id,
         {
@@ -572,11 +562,22 @@ const updateProfile = asyncHandler(async (req, res) => {
         }
       );
     }
-    if ((positionInCompany = "")) {
+    if (positionInCompany === "") {
       user = await User.findByIdAndUpdate(
         user_id,
         {
           $set: { positionInCompany: positionInCompany },
+        },
+        {
+          new: true,
+        }
+      );
+    }
+    if (industry === "") {
+      user = await User.findByIdAndUpdate(
+        user_id,
+        {
+          $set: { industry: industry },
         },
         {
           new: true,
