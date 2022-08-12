@@ -540,7 +540,7 @@ const updateProfile = asyncHandler(async (req, res) => {
         }
       );
     }
-    if (linkdinProfile === "") {
+    if (linkdinProfile === "" || linkdinProfile !== "") {
       user = await User.findByIdAndUpdate(
         user_id,
         {
@@ -551,7 +551,7 @@ const updateProfile = asyncHandler(async (req, res) => {
         }
       );
     }
-    if (companyName === "") {
+    if (companyName === "" || companyName !== "") {
       user = await User.findByIdAndUpdate(
         user_id,
         {
@@ -562,7 +562,7 @@ const updateProfile = asyncHandler(async (req, res) => {
         }
       );
     }
-    if (positionInCompany === "") {
+    if (positionInCompany === "" || positionInCompany !== "") {
       user = await User.findByIdAndUpdate(
         user_id,
         {
@@ -573,7 +573,7 @@ const updateProfile = asyncHandler(async (req, res) => {
         }
       );
     }
-    if (industry === "") {
+    if (industry === "" || industry !== "") {
       user = await User.findByIdAndUpdate(
         user_id,
         {
